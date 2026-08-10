@@ -1,6 +1,7 @@
-package br.com.fullcycle.hexagonal.application.usecases;
+package br.com.fullcycle.hexagonal.application.usecases.Partner;
 
 
+import br.com.fullcycle.hexagonal.application.usecases.partner.GetPartnerByIdUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.models.Partner;
 import br.com.fullcycle.hexagonal.infrastructure.services.PartnerService;
 import org.junit.jupiter.api.Assertions;

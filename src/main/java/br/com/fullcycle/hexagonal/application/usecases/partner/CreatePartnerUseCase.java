@@ -1,4 +1,4 @@
-package br.com.fullcycle.hexagonal.application.usecases;
+package br.com.fullcycle.hexagonal.application.usecases.partner;
 
 import br.com.fullcycle.hexagonal.application.UseCase;
 import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;

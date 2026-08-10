@@ -1,6 +1,11 @@
 package br.com.fullcycle.hexagonal.infrastructure.configurations;
 
-import br.com.fullcycle.hexagonal.application.usecases.*;
+import br.com.fullcycle.hexagonal.application.usecases.Customer.CreateCustomerUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Customer.GetCustomerByIdUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.partner.CreatePartnerUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.partner.GetPartnerByIdUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.services.CustomerService;
 import br.com.fullcycle.hexagonal.infrastructure.services.EventService;
 import br.com.fullcycle.hexagonal.infrastructure.services.PartnerService;
@@ -24,7 +29,7 @@ public class UseCaseConfig {
 
     @Bean
     public CreateCustomerUseCase createCustomerUseCase() {
-        return new CreateCustomerUseCase(customerService);
+        return new CreateCustomerUseCase(null);
     }
 
     @Bean
@@ -39,7 +44,7 @@ public class UseCaseConfig {
 
     @Bean
     public GetCustomerByIdUseCase getCustomerByIdUseCase() {
-        return new GetCustomerByIdUseCase(customerService);
+        return new GetCustomerByIdUseCase(null);
     }
 
     @Bean
