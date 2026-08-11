@@ -4,6 +4,7 @@ import br.com.fullcycle.hexagonal.application.domain.customer.CustomerId;
 import br.com.fullcycle.hexagonal.application.domain.partner.Partner;
 import br.com.fullcycle.hexagonal.application.domain.partner.PartnerId;
 import br.com.fullcycle.hexagonal.application.domain.person.Name;
+import br.com.fullcycle.hexagonal.application.domain.event.ticket.Ticket;
 import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;
 
 import java.time.LocalDate;
@@ -96,7 +97,11 @@ public class Event {
             throw new ValidationException("Invalid date for Event");
         }
 
-        this.date = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
+        try {
+            this.date = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (RuntimeException exception) {
+            throw new ValidationException("Invalid date for Event", exception);
+        }
     }
 
     private void setTotalSpots(final Integer totalSpots) {

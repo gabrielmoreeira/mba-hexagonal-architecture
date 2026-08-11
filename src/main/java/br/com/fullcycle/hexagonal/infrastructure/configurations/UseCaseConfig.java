@@ -1,11 +1,11 @@
 package br.com.fullcycle.hexagonal.infrastructure.configurations;
 
-import br.com.fullcycle.hexagonal.application.usecases.Customer.CreateCustomerUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.Customer.GetCustomerByIdUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.Event.CreateEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.Event.SubscribeCustomerToEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.Partner.CreatePartnerUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.Partner.GetPartnerByIdUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.customer.CreateCustomerUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.customer.GetCustomerByIdUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.partner.CreatePartnerUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.partner.GetPartnerByIdUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.services.CustomerService;
 import br.com.fullcycle.hexagonal.infrastructure.services.EventService;
 import br.com.fullcycle.hexagonal.infrastructure.services.PartnerService;
