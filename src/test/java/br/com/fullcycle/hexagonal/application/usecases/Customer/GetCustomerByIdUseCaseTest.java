@@ -1,7 +1,7 @@
 package br.com.fullcycle.hexagonal.application.usecases.Customer;
 
 import br.com.fullcycle.hexagonal.application.InMemoryCustomerRepository;
-import br.com.fullcycle.hexagonal.application.entities.Customer;
+import br.com.fullcycle.hexagonal.application.domain.customer.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ class GetCustomerByIdUseCaseTest {
     @DisplayName("Deve obter um cliente por id")
     public void testGetById() {
         // given
-        final var expectedCPF = "12345678901";
+        final var expectedCPF = "509.303.800-88";
         final var expectedEmail = "john.doe@gmail.com";
         final var expectedName = "John Doe";
 

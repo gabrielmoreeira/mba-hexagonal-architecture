@@ -1,8 +1,8 @@
 package br.com.fullcycle.hexagonal.infrastructure.rest;
 
 import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;
-import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Event.CreateEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Event.SubscribeCustomerToEventUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.dtos.NewEventDTO;
 import br.com.fullcycle.hexagonal.infrastructure.dtos.SubscribeDTO;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +47,7 @@ public class EventController {
 
     @Transactional
     @PostMapping(value = "/{id}/subscribe")
-    public ResponseEntity<?> subscribe(@PathVariable Long id, @RequestBody SubscribeDTO dto) {
+    public ResponseEntity<?> subscribe(@PathVariable String id, @RequestBody SubscribeDTO dto) {
         try {
             final var output =
                     subscribeCustomerToEventUseCase.execute(new SubscribeCustomerToEventUseCase.Input(dto.customerId(),id));

@@ -1,7 +1,7 @@
 package br.com.fullcycle.hexagonal.application;
 
-import br.com.fullcycle.hexagonal.application.entities.Customer;
-import br.com.fullcycle.hexagonal.application.entities.CustomerId;
+import br.com.fullcycle.hexagonal.application.domain.customer.Customer;
+import br.com.fullcycle.hexagonal.application.domain.customer.CustomerId;
 import br.com.fullcycle.hexagonal.application.repositories.CustomerRepository;
 
 import java.util.HashMap;
@@ -39,16 +39,16 @@ public class InMemoryCustomerRepository implements CustomerRepository {
     @Override
     public Customer create(Customer customer) {
         this.customers.put(customer.customerId().value().toString(), customer);
-        this.customersByCPF.put(customer.cpf(), customer);
-        this.customersByEmail.put(customer.email(), customer);
+        this.customersByCPF.put(customer.cpf().value(), customer);
+        this.customersByEmail.put(customer.email().value(), customer);
         return customer;
     }
 
     @Override
     public Customer update(Customer customer) {
         this.customers.put(customer.customerId().value().toString(), customer);
-        this.customersByCPF.put(customer.cpf(), customer);
-        this.customersByEmail.put(customer.email(), customer);
+        this.customersByCPF.put(customer.cpf().value(), customer);
+        this.customersByEmail.put(customer.email().value(), customer);
         return customer;
     }
 

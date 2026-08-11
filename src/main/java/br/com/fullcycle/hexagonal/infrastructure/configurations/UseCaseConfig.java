@@ -2,10 +2,10 @@ package br.com.fullcycle.hexagonal.infrastructure.configurations;
 
 import br.com.fullcycle.hexagonal.application.usecases.Customer.CreateCustomerUseCase;
 import br.com.fullcycle.hexagonal.application.usecases.Customer.GetCustomerByIdUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.partner.CreatePartnerUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.partner.GetPartnerByIdUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Event.CreateEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Partner.CreatePartnerUseCase;
+import br.com.fullcycle.hexagonal.application.usecases.Partner.GetPartnerByIdUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.services.CustomerService;
 import br.com.fullcycle.hexagonal.infrastructure.services.EventService;
 import br.com.fullcycle.hexagonal.infrastructure.services.PartnerService;
@@ -34,12 +34,12 @@ public class UseCaseConfig {
 
     @Bean
     public CreateEventUseCase createEventUseCase() {
-        return new CreateEventUseCase(eventService, partnerService);
+        return new CreateEventUseCase(null, null);
     }
 
     @Bean
     public CreatePartnerUseCase createPartnerUseCase() {
-        return new CreatePartnerUseCase(partnerService);
+        return new CreatePartnerUseCase(null);
     }
 
     @Bean
@@ -49,11 +49,11 @@ public class UseCaseConfig {
 
     @Bean
     public GetPartnerByIdUseCase getPartnerByIdUseCase() {
-        return new GetPartnerByIdUseCase(partnerService);
+        return new GetPartnerByIdUseCase(null);
     }
 
     @Bean
     public SubscribeCustomerToEventUseCase subscribeCustomerToEventUseCase() {
-        return new SubscribeCustomerToEventUseCase(customerService, eventService);
+        return new SubscribeCustomerToEventUseCase(null, null, null);
     }
 }

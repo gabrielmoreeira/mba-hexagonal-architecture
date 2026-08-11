@@ -1,7 +1,7 @@
 package br.com.fullcycle.hexagonal.application.usecases.Customer;
 
 import br.com.fullcycle.hexagonal.application.InMemoryCustomerRepository;
-import br.com.fullcycle.hexagonal.application.entities.Customer;
+import br.com.fullcycle.hexagonal.application.domain.customer.Customer;
 import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +13,7 @@ public class CreateCustomerUseCaseTest {
     public void testCreateCustomer() {
 
         // given
-        final var expectedCPF = "12345678901";
+        final var expectedCPF = "392.765.124-97";
         final var expectedEmail = "john.doe@gmail.com";
         final var expectedName = "John Doe";
         final var createInput = new CreateCustomerUseCase.Input(expectedCPF, expectedEmail, expectedName);
@@ -35,7 +35,7 @@ public class CreateCustomerUseCaseTest {
     public void testCreateWithDuplicatedCPFShouldFail() throws Exception {
 
         // given
-        final var expectedCPF = "12345678901";
+        final var expectedCPF = "392.765.124-97";
         final var expectedEmail = "john.doe@gmail.com";
         final var expectedName = "John Doe";
         final var expectedError = "Customer already exists";
@@ -59,7 +59,7 @@ public class CreateCustomerUseCaseTest {
     public void testCreateWithDuplicatedEmailShouldFail() throws Exception {
 
         // given
-        final var expectedCPF = "12345678901";
+        final var expectedCPF = "392.765.124-97";
         final var expectedEmail = "john.doe@gmail.com";
         final var expectedName = "John Doe";
         final var expectedError = "Customer already exists";
