@@ -36,6 +36,6 @@ public class InMemoryTicketRepository implements TicketRepository {
 
     @Override
     public void deleteAll() {
-
+        this.tickets.clear();
     }
 }

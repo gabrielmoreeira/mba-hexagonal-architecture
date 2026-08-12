@@ -10,7 +10,7 @@ public class EventTicket {
     private final EventId eventId;
     private int ordering;
 
-    protected EventTicket(final TicketId ticketId,
+    public EventTicket(final TicketId ticketId,
                           final EventId eventId,
                           final CustomerId customerId,
                           final int ordering) {

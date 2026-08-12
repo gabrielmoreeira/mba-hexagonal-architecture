@@ -1,9 +1,10 @@
 package br.com.fullcycle.hexagonal.infrastructure.rest;
 
+import br.com.fullcycle.hexagonal.application.repositories.PartnerRepository;
 import br.com.fullcycle.hexagonal.application.usecases.partner.CreatePartnerUseCase;
 import br.com.fullcycle.hexagonal.application.usecases.partner.GetPartnerByIdUseCase;
 import br.com.fullcycle.hexagonal.infrastructure.dtos.NewPartnerDTO;
-import br.com.fullcycle.hexagonal.infrastructure.repositories.PartnerRepository;
+import br.com.fullcycle.hexagonal.infrastructure.jpa.repositories.PartnerJpaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
