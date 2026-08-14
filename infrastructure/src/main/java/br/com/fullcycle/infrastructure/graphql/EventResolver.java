@@ -1,7 +1,7 @@
 package br.com.fullcycle.infrastructure.graphql;
 
-import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.application.event.CreateEventUseCase;
+import br.com.fullcycle.application.event.SubscribeCustomerToEventUseCase;
 import br.com.fullcycle.infrastructure.dtos.NewEventDTO;
 import br.com.fullcycle.infrastructure.dtos.SubscribeDTO;
 import org.springframework.graphql.data.method.annotation.Argument;

@@ -1,8 +1,8 @@
 package br.com.fullcycle.infrastructure.rest;
 
-import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;
-import br.com.fullcycle.hexagonal.application.usecases.event.CreateEventUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.event.SubscribeCustomerToEventUseCase;
+import br.com.fullcycle.domain.exceptions.ValidationException;
+import br.com.fullcycle.application.event.CreateEventUseCase;
+import br.com.fullcycle.application.event.SubscribeCustomerToEventUseCase;
 import br.com.fullcycle.infrastructure.dtos.NewEventDTO;
 import br.com.fullcycle.infrastructure.dtos.SubscribeDTO;
 import org.springframework.http.ResponseEntity;

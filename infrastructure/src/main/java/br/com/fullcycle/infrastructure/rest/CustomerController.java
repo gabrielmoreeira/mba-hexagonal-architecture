@@ -1,8 +1,8 @@
 package br.com.fullcycle.infrastructure.rest;
 
-import br.com.fullcycle.hexagonal.application.exceptions.ValidationException;
-import br.com.fullcycle.hexagonal.application.usecases.customer.CreateCustomerUseCase;
-import br.com.fullcycle.hexagonal.application.usecases.customer.GetCustomerByIdUseCase;
+import br.com.fullcycle.application.customer.CreateCustomerUseCase;
+import br.com.fullcycle.application.customer.GetCustomerByIdUseCase;
+import br.com.fullcycle.domain.exceptions.ValidationException;
 import br.com.fullcycle.infrastructure.dtos.NewCustomerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

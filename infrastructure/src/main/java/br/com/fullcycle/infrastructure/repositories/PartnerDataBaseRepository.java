@@ -1,10 +1,10 @@
 package br.com.fullcycle.infrastructure.repositories;
 
-import br.com.fullcycle.hexagonal.application.domain.partner.Partner;
-import br.com.fullcycle.hexagonal.application.domain.partner.PartnerId;
-import br.com.fullcycle.hexagonal.application.domain.person.Cnpj;
-import br.com.fullcycle.hexagonal.application.domain.person.Email;
-import br.com.fullcycle.hexagonal.application.repositories.PartnerRepository;
+import br.com.fullcycle.domain.partner.Partner;
+import br.com.fullcycle.domain.partner.PartnerId;
+import br.com.fullcycle.domain.person.Cnpj;
+import br.com.fullcycle.domain.person.Email;
+import br.com.fullcycle.domain.partner.PartnerRepository;
 import br.com.fullcycle.infrastructure.jpa.entities.PartnerEntity;
 import br.com.fullcycle.infrastructure.jpa.repositories.PartnerJpaRepository;
 import org.springframework.stereotype.Component;

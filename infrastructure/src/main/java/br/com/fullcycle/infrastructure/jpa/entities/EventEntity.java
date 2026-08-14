@@ -1,7 +1,7 @@
 package br.com.fullcycle.infrastructure.jpa.entities;
 
-import br.com.fullcycle.hexagonal.application.domain.event.Event;
-import br.com.fullcycle.hexagonal.application.domain.event.EventTicket;
+import br.com.fullcycle.domain.event.Event;
+import br.com.fullcycle.domain.event.EventTicket;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

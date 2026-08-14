@@ -1,7 +1,7 @@
 package br.com.fullcycle.infrastructure.jpa.entities;
 
-import br.com.fullcycle.hexagonal.application.domain.customer.Customer;
-import br.com.fullcycle.hexagonal.application.domain.customer.CustomerId;
+import br.com.fullcycle.domain.customer.Customer;
+import br.com.fullcycle.domain.customer.CustomerId;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;

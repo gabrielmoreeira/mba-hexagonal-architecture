@@ -16,11 +16,13 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":application"))
+
     implementation("io.hypersistence:hypersistence-tsid:2.1.0")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-graphql")
     implementation("org.springframework.boot:spring-boot-starter-web")
-//	implementation("javax.inject:javax.inject:1")
     implementation("jakarta.inject:jakarta.inject-api:2.0.1")
 
 
