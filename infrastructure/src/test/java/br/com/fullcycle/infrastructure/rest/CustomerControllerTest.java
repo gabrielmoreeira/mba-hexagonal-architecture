@@ -167,6 +167,6 @@ public class CustomerControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn().getResponse().getContentAsByteArray();
 
-//        Assertions.assertEquals(customerId, new String(actualResponse));
+        Assertions.assertEquals(customerId, new String(actualResponse));
     }
 }

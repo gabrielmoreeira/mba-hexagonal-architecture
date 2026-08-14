@@ -1,18 +1,16 @@
 plugins {
     java
+    `java-conventions`
+    `jacoco-report-aggregation`
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
 }
 
-group = "br.com.fullcycle"
-version = "0.0.1-SNAPSHOT"
+group = "br.com.fullcycle.infrastructure"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-}
-
-repositories {
-    mavenCentral()
+tasks.bootJar {
+    archiveBaseName.set("application")
+    destinationDirectory.set(file("${rootProject.buildDir}/libs"))
 }
 
 dependencies {
@@ -23,8 +21,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-graphql")
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
 
+    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
 
     runtimeOnly("com.mysql:mysql-connector-j")
 
@@ -35,6 +33,16 @@ dependencies {
     testRuntimeOnly("com.h2database:h2")
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+tasks.testCodeCoverageReport {
+    reports {
+        xml.required.set(true)
+        xml.outputLocation.set(file("$rootDir/build/reports/jacoco/test/jacocoTestReport.xml"))
+
+        html.required.set(true)
+        html.outputLocation.set(file("$rootDir/build/reports/jacoco/test/"))
+    }
+}
+
+tasks.named("jacocoTestReport") {
+    dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport"))
 }
