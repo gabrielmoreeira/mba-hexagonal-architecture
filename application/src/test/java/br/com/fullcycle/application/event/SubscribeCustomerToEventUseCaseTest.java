@@ -7,9 +7,8 @@ import br.com.fullcycle.domain.customer.Customer;
 import br.com.fullcycle.domain.customer.CustomerId;
 import br.com.fullcycle.domain.event.Event;
 import br.com.fullcycle.domain.event.EventId;
-import br.com.fullcycle.domain.partner.Partner;
 import br.com.fullcycle.domain.exceptions.ValidationException;
-import br.com.fullcycle.domain.event.ticket.TicketStatus;
+import br.com.fullcycle.domain.partner.Partner;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,10 +36,7 @@ class SubscribeCustomerToEventUseCaseTest {
         final var ticketRepository = new InMemoryTicketRepository();
 
         // when -> quando
-        final var useCase = new SubscribeCustomerToEventUseCase(
-                customerRepository,
-                eventRepository,
-                ticketRepository);
+        final var useCase = new SubscribeCustomerToEventUseCase(customerRepository, eventRepository);
 
         customerRepository.create(aCustomer);
         eventRepository.create(anEvent);
@@ -50,9 +46,7 @@ class SubscribeCustomerToEventUseCaseTest {
 
         // then -> então
         Assertions.assertEquals(eventId, outPut.eventId());
-        Assertions.assertNotNull(outPut.ticketId());
         Assertions.assertNotNull(outPut.reservationDate());
-        Assertions.assertEquals(TicketStatus.PENDING.name(), outPut.ticketStatus());
 
         final var actualEvent = eventRepository.eventOfId(anEvent.getEventId());
         Assertions.assertEquals(expectedTicketSize, actualEvent.get().allTickets().size());
@@ -78,10 +72,7 @@ class SubscribeCustomerToEventUseCaseTest {
         final var ticketRepository = new InMemoryTicketRepository();
 
         // when -> quando
-        final var useCase = new SubscribeCustomerToEventUseCase(
-                customerRepository,
-                eventRepository,
-                ticketRepository);
+        final var useCase = new SubscribeCustomerToEventUseCase(customerRepository, eventRepository);
 
         eventRepository.create(anEvent);
 
@@ -110,10 +101,7 @@ class SubscribeCustomerToEventUseCaseTest {
         final var ticketRepository = new InMemoryTicketRepository();
 
         // when -> quando
-        final var useCase = new SubscribeCustomerToEventUseCase(
-                customerRepository,
-                eventRepository,
-                ticketRepository);
+        final var useCase = new SubscribeCustomerToEventUseCase(customerRepository, eventRepository);
 
         customerRepository.create(aCustomer);
 
@@ -144,19 +132,14 @@ class SubscribeCustomerToEventUseCaseTest {
 
         final var customerRepository = new InMemoryCustomerRepository();
         final var eventRepository = new InMemoryEventRepository();
-        final var ticketRepository = new InMemoryTicketRepository();
 
         // when -> quando
-        final var useCase = new SubscribeCustomerToEventUseCase(
-                customerRepository,
-                eventRepository,
-                ticketRepository);
+        final var useCase = new SubscribeCustomerToEventUseCase(customerRepository, eventRepository);
 
-        final var ticket = anEvent.reserveTicket(aCustomer.customerId());
+        anEvent.reserveTicket(aCustomer.customerId());
 
         customerRepository.create(aCustomer);
         eventRepository.create(anEvent);
-        ticketRepository.create(ticket);
 
         final var actualException = Assertions.assertThrows(ValidationException.class, () -> useCase.execute(subscribeInput));
 
@@ -185,20 +168,15 @@ class SubscribeCustomerToEventUseCaseTest {
 
         final var customerRepository = new InMemoryCustomerRepository();
         final var eventRepository = new InMemoryEventRepository();
-        final var ticketRepository = new InMemoryTicketRepository();
 
-        final var ticket = anEvent.reserveTicket(aCustomer2.customerId());
+        anEvent.reserveTicket(aCustomer2.customerId());
 
         customerRepository.create(aCustomer);
         customerRepository.create(aCustomer2);
         eventRepository.create(anEvent);
-        ticketRepository.create(ticket);
 
         // when -> quando
-        final var useCase = new SubscribeCustomerToEventUseCase(
-                customerRepository,
-                eventRepository,
-                ticketRepository);
+        final var useCase = new SubscribeCustomerToEventUseCase(customerRepository, eventRepository);
 
 
         final var actualException = Assertions.assertThrows(ValidationException.class, () -> useCase.execute(subscribeInput));

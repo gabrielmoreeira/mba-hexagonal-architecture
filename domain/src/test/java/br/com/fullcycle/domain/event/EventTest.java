@@ -92,6 +92,7 @@ public class EventTest {
         final var expectedTickets = 1;
         final var expectedTicketOrder = 1;
         final var expectedTicketStatus = TicketStatus.PENDING;
+        final var expectedDomainEvent = "event-ticket.reserved";
 
         final var actualEvent = Event.newEvent(expectedName, expectedDate, expectedTotalSpots, aPartner);
 
@@ -101,12 +102,9 @@ public class EventTest {
         final var actualTicket = actualEvent.reserveTicket(aCustomer.customerId());
 
         // then
-        Assertions.assertNotNull(actualTicket.getTicketId());
-        Assertions.assertNotNull(actualTicket.getReservedAt());
-        Assertions.assertNull(actualTicket.getPaidAt());
-        Assertions.assertEquals(expectedEventId, actualTicket.getEventId());
-        Assertions.assertEquals(expectedCustomerId, actualTicket.getCustomerId());
-        Assertions.assertEquals(expectedTicketStatus, actualTicket.getStatus());
+        Assertions.assertNotNull(actualTicket.eventId());
+        Assertions.assertEquals(expectedEventId, actualTicket.eventId());
+        Assertions.assertEquals(expectedCustomerId, actualTicket.customerId());
 
         Assertions.assertEquals(expectedDate, actualEvent.getDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
         Assertions.assertEquals(expectedName, actualEvent.getName().value());
@@ -118,7 +116,10 @@ public class EventTest {
         Assertions.assertEquals(expectedTicketOrder, actualEventTicket.getOrdering());
         Assertions.assertEquals(expectedEventId, actualEventTicket.eventId());
         Assertions.assertEquals(expectedCustomerId, actualEventTicket.customerId());
-        Assertions.assertEquals(actualTicket.getTicketId(), actualEventTicket.ticketId());
+        Assertions.assertEquals(actualTicket.ticketId(), actualEventTicket.ticketId());
+
+        final var actualDomainEvents = actualEvent.allDomainEvents().iterator().next();
+        Assertions.assertEquals(expectedDomainEvent, actualDomainEvents.type());
     }
 
     @Test

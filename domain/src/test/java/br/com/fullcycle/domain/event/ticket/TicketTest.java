@@ -102,12 +102,9 @@ public class TicketTest {
         final var actualTicket = actualEvent.reserveTicket(aCustomer.customerId());
 
         // then
-        Assertions.assertNotNull(actualTicket.getTicketId());
-        Assertions.assertNotNull(actualTicket.getReservedAt());
-        Assertions.assertNull(actualTicket.getPaidAt());
-        Assertions.assertEquals(expectedEventId, actualTicket.getEventId());
-        Assertions.assertEquals(expectedCustomerId, actualTicket.getCustomerId());
-        Assertions.assertEquals(expectedTicketStatus, actualTicket.getStatus());
+        Assertions.assertNull(actualTicket.ticketId());
+        Assertions.assertEquals(expectedEventId, actualTicket.eventId());
+        Assertions.assertEquals(expectedCustomerId, actualTicket.customerId());
 
         Assertions.assertEquals(expectedDate, actualEvent.getDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
         Assertions.assertEquals(expectedName, actualEvent.getName().value());
@@ -119,7 +116,7 @@ public class TicketTest {
         Assertions.assertEquals(expectedTicketOrder, actualEventTicket.getOrdering());
         Assertions.assertEquals(expectedEventId, actualEventTicket.eventId());
         Assertions.assertEquals(expectedCustomerId, actualEventTicket.customerId());
-        Assertions.assertEquals(actualTicket.getTicketId(), actualEventTicket.ticketId());
+        Assertions.assertEquals(actualTicket.ticketId(), actualEventTicket.ticketId());
     }
 
     @Test
